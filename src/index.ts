@@ -1,5 +1,6 @@
 import express, { json, urlencoded } from "express";
 import cors from "cors";
+import * as dotenv from "dotenv";
 
 import { api } from "./api/routes";
 import { getErrorMessage } from "./api/utils";
@@ -9,6 +10,8 @@ const app = express();
 
 //Constants
 const PORT = Number(process.env.PORT) || 8081;
+
+dotenv.config();
 
 //cors middleware config
 app.use(cors());
