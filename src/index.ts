@@ -2,6 +2,7 @@ import express, { json, urlencoded } from "express";
 import cors from "cors";
 
 import { api } from "./api/routes";
+import { getErrorMessage } from "./api/utils";
 
 //Init server app
 const app = express();
