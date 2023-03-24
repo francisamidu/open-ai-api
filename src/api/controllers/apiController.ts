@@ -19,6 +19,14 @@ router.post(
   ApiService.complete
 );
 
-router.post("/translate", body(), ApiService.translate);
+router.post(
+  "/translate",
+  body("prompt")
+    .isLength({
+      min: 2,
+    })
+    .custom(validate),
+  ApiService.translate
+);
 
 export default router;

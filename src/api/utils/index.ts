@@ -1,3 +1,4 @@
 import getErrorMessage from "./getErrorMessage";
+import errorFormatter from "./formatter";
 
-export { getErrorMessage };
+export { errorFormatter, getErrorMessage };

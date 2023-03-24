@@ -35,7 +35,7 @@ export declare type Location =
 
 const validate = (input: any, { req }: Meta) => {
   if (input !== req?.body?.prompt) {
-    throw new Error("Please provide a prompt");
+    return Promise.reject("Please provide a prompt");
   }
   return true;
 };
