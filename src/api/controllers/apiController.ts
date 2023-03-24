@@ -4,6 +4,6 @@ import { ApiService } from "../services";
 
 const router = express.Router();
 
-router.get("/", ApiService.get);
+router.get("/", ApiService.index);
 
-export default router
+export default router;
