@@ -1,7 +1,6 @@
 import express, { json, urlencoded } from "express";
 import cors from "cors";
-import * as dotenv from "dotenv";
-
+import dotenv from "dotenv";
 import { api } from "./api/routes";
 import { getErrorMessage } from "./api/utils";
 
@@ -15,7 +14,7 @@ dotenv.config();
 
 //cors middleware config
 app.use(cors());
-app.use(json());
+app.use(json({}));
 app.use(urlencoded({ extended: false }));
 
 app.use("/api", api);

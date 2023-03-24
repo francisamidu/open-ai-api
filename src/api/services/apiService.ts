@@ -44,12 +44,24 @@ class ApiService {
     const { prompt } = req.body;
 
     const code = await openaiApi.createCompletion({
-      model: "code-davinci-002",
+      model: "cushman:2020-05-03",
       prompt,
     });
 
+    const response = await openaiApi.listModels();
+
+    if (code.status > 200) {
+      res.status(code.status).json({
+        errors: [
+          {
+            message: code.statusText,
+          },
+        ],
+      });
+    }
+
     res.status(200).json({
-      result: code.data.choices[0].text,
+      result: response.data,
     });
   }
 }
