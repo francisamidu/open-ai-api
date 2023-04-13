@@ -7,7 +7,7 @@ const ck = require("ckey");
 const configuration = new Configuration({
   apiKey: ck.OPENAI_SECRET_KEY,
 });
-const openaiApi = new OpenAIApi(configuration);
+export const openaiApi = new OpenAIApi(configuration);
 
 class ApiService {
   static async index(req: Request, res: Response) {
