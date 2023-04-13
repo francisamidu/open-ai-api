@@ -3,7 +3,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { api } from "./api/routes";
 import { getErrorMessage } from "./api/utils";
-import { openaiApi } from "./api/services/apiService";
 
 //Init server app
 const app = express();
@@ -22,13 +21,6 @@ app.use("/api", api);
 
 const init = async () => {
   try {
-    const code = await openaiApi.createCompletion({
-      model: "cushman:2020-05-03",
-      prompt: "Convert console.log('hey') from JavaScript to C#",
-    });
-
-    console.log(code.data.choices[0].text);
-
     app
       .listen(PORT, () => {
         console.log(`App is running on port:${PORT}`);

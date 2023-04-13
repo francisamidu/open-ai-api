@@ -50,7 +50,7 @@ class ApiService {
       const { prompt } = req.body;
 
       const code = await openaiApi.createCompletion({
-        model: "cushman:2020-05-03",
+        model: "text-davinci-003",
         prompt,
       });
 
