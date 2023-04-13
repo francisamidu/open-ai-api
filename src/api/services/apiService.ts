@@ -35,7 +35,7 @@ class ApiService {
       });
     } catch (error) {
       const message = getErrorMessage(error);
-      console.log(message);
+      console.log(error);
       res.status(500).json({ message: "Something went wrong" });
     }
   }
@@ -54,8 +54,6 @@ class ApiService {
         prompt,
       });
 
-      const response = await openaiApi.listModels();
-
       if (code.status > 200) {
         res.status(code.status).json({
           errors: [
@@ -67,11 +65,11 @@ class ApiService {
       }
 
       res.status(200).json({
-        result: response.data,
+        result: code.data.choices[0].text,
       });
     } catch (error) {
       const message = getErrorMessage(error);
-      console.log(message);
+      console.log(error);
       res.status(500).json({
         message: "Something went wrong. Try again",
       });
